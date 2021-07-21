@@ -1,25 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="SafariParkApp.Person">
-    <Position X="7" Y="2" Width="2.75" />
+    <Position X="6.75" Y="2" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAAAAIAAAEAAAAAAAAAAAAgAAAAAAAAAAAg=</HashCode>
       <FileName>Person.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SafariParkApp.Vehicle">
-    <Position X="11" Y="2" Width="2.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAoAAAAAgEAAAAAQBAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Vehicle.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="SafariParkApp.Hunter">
-    <Position X="3" Y="2.25" Width="2.25" />
+    <Position X="10.75" Y="2.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
       <FileName>Hunter.cs</FileName>
     </TypeIdentifier>
+  </Class>
+  <Class Name="System.Object">
+    <Position X="2.75" Y="2.25" Width="2.25" />
+    <TypeIdentifier />
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

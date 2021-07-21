@@ -13,10 +13,15 @@ namespace SafariParkApp
         {
             _camera = camera;
         }
-
+        public Hunter() { }
         public string Shoot()
         {
             return $"{FullName} has taking a photo with their {_camera}";
+        }
+
+        public override string ToString()
+        {
+            return $"{base.ToString()} Camera: {_camera}";
         }
     }
 }

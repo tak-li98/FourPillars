@@ -7,8 +7,8 @@ namespace SafariParkApp
 {
     public class Vehicle
     {
-        private int _capacity;
-        private int _numPassengers;
+        protected int _capacity;
+        protected int _numPassengers;
 
         public int Position { get; set; }
 
@@ -36,18 +36,21 @@ namespace SafariParkApp
             }
 
 
-        public string Move()
+        public virtual string Move()
         {
             Position += Speed;
             return $"Moving along";
         }
 
-        public string Move(int times)
+        public virtual string Move(int times)
         {
             Position += Speed * times;
             return $"Moving along {times} times";
         }
 
-
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }

@@ -7,7 +7,7 @@ namespace SafariParkApp
 {
     public class Person 
     {
-        public string FirstName { get; init; }
+        public string FirstName { get; init; } = "";
         public string LastName { get; init; }
         private int _age;
         public int Age
@@ -24,7 +24,7 @@ namespace SafariParkApp
         }
         //public int Age { get; init; }
 
-        public Person(string firstName, string lastName, int age)
+        public Person(string firstName, string lastName, int age )
         {
             FirstName = firstName;
             LastName = lastName;
@@ -40,5 +40,10 @@ namespace SafariParkApp
 
         }
         public string FullName => (LastName.Length>0)?$"{FirstName} {LastName}":FirstName;
+
+        public override string ToString()
+        {
+            return $"{base.ToString()} Name:{FirstName} Age: {Age}";
+        }
     }
 }
