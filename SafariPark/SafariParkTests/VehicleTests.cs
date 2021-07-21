@@ -1,6 +1,6 @@
 ﻿using SafariParkApp;
 using NUnit.Framework;
-
+using System;
 namespace SafariParkTests
 {
     public class VehicleTests
@@ -21,6 +21,13 @@ namespace SafariParkTests
             var result = v.Move();
             Assert.AreEqual(40, v.Position);
             Assert.AreEqual("Moving along", result);
+        }
+
+        [Test]
+        public void WhenNegativePassengerIsPassedIn_ThrowsException()
+        {
+            Vehicle v = new Vehicle(5, 40);
+            Assert.That(() => v.NumPassengers =-1, Throws.InstanceOf<ArgumentException>());
         }
     }
 }

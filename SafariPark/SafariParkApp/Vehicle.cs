@@ -27,7 +27,7 @@ namespace SafariParkApp
 
         public int NumPassengers { 
             get { return _numPassengers;}
-            set { if(_numPassengers<0 || _numPassengers > _capacity)
+            set { if(value<0 || value > _capacity)
                 {
                     throw new ArgumentException("Number of passengers exceed capacity or is less than zero!");
                 }
