@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SafariParkApp
 {
-    public class Vehicle
+    public class Vehicle : IMoveable
     {
         protected int _capacity;
         protected int _numPassengers;
@@ -35,6 +35,7 @@ namespace SafariParkApp
                 }
             }
 
+        public int TimesMoved => throw new NotImplementedException();
 
         public virtual string Move()
         {

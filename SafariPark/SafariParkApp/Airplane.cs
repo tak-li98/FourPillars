@@ -14,7 +14,7 @@ namespace SafariParkApp
             _airline = airline;
         }
 
-        public Airplane(int capacity)
+        public Airplane(int capacity):base(capacity)
         {
 
         }

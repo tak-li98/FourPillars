@@ -5,23 +5,22 @@ using System.Text;
 
 namespace SafariParkApp
 {
-    public class Hunter : Person
+    public class Hunter : Person, IShootable
     {
-        private string _camera;
-
-        public Hunter(string fName, string lName, string camera="") : base(fName,lName)
+        public IShootable Shooter{get;set;}
+        public Hunter(string fName, string lName, IShootable shooter) : base(fName,lName)
         {
-            _camera = camera;
+            Shooter = shooter;
         }
         public Hunter() { }
         public string Shoot()
         {
-            return $"{FullName} has taking a photo with their {_camera}";
+            return $"{FullName}: {Shooter.Shoot()}";
         }
 
         public override string ToString()
         {
-            return $"{base.ToString()} Camera: {_camera}";
+            return $"{base.ToString()} Shooter: {Shooter}";
         }
     }
 }

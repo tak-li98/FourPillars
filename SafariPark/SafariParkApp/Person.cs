@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SafariParkApp
 {
-    public class Person 
+    public class Person : IMoveable
     {
         public string FirstName { get; init; } = "";
         public string LastName { get; init; }
@@ -41,9 +41,21 @@ namespace SafariParkApp
         }
         public string FullName => (LastName.Length>0)?$"{FirstName} {LastName}":FirstName;
 
+        public int TimesMoved => throw new NotImplementedException();
+
         public override string ToString()
         {
             return $"{base.ToString()} Name:{FirstName} Age: {Age}";
+        }
+
+        public string Move()
+        {
+            return $"Walking along";
+        }
+
+        public string Move(int times)
+        {
+            return $"Walking along {times} times";
         }
     }
 }

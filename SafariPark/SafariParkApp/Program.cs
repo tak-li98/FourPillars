@@ -1,20 +1,76 @@
 ﻿using System;
-
+using System.Collections.Generic;
 namespace SafariParkApp
 {
     class Program
     {
-        public struct Point3D
+        public static void Main()
         {
-            public int x, y, z;
+            Lasso lasso = new Lasso("Rope3000");
+            var nish = new Hunter("Nish", "Mandal",lasso);
 
-            public Point3D(int x, int y, int z)
+            List<IShootable> weapons = new List<IShootable>
             {
-                this.x = x;
-                this.y = y;
-                this.z = z;
+                lasso,
+                new Tranquilizer("Sleepysleepy"),
+                new Camera("Canon")
+            };
+
+            foreach (IShootable weapon in weapons)
+            {
+                nish.Shooter = weapon;
+                Console.WriteLine(nish.Shoot());
             }
         }
+        //public struct Point3D
+        //{
+        //    public int x, y, z;
+
+        //    public Point3D(int x, int y, int z)
+        //    {
+        //        this.x = x;
+        //        this.y = y;
+        //        this.z = z;
+        //    }
+        //}
+        //public static void SpartaWrite(Object obj)
+        //{
+        //    Console.WriteLine(obj.ToString());
+        //}
+        //public static void Main()
+        //{
+        //    List<Object> gameObjects = new List<Object>()
+        //    {
+        //        new Person("Cathy", "French"),
+        //        new Airplane(400,200,"Boeing"){NumPassengers = 300 },
+        //        new Vehicle(12,20){NumPassengers = 6 },
+        //        new Hunter("Henry","Hodgkins","Pentax")
+        //    };
+        //    foreach (var o in gameObjects)
+        //    {
+        //        Console.WriteLine(o);
+        //        if (o is Vehicle)
+        //        {
+        //            var vO = (Vehicle)o;
+        //            Console.WriteLine($"Number of passengers: {vO.NumPassengers}");
+        //        }
+        //    }
+        //    Person p1 = new Hunter("Jacob", "Chan") { Age = 20 };
+        //    Vehicle plane = new Airplane(250) {NumPassengers = 150, Speed = 300 };
+        //    SpartaWrite(p1);
+        //    SpartaWrite(plane);
+
+        //    List<IMoveable> theObjects = new List<IMoveable>()
+        //    {
+        //        new Hunter("John","Wick","Alexa"){Age = 56},
+        //        new Airplane(250)
+        //    };
+        //    foreach(var o in theObjects)
+        //    {
+        //        Console.WriteLine(o.Move());
+        //        Console.WriteLine(o.Move(10));
+        //    }
+
         //static void Main(string[] args)
         //{
         //    Point3D p = new Point3D(3, 6, 2);
@@ -47,16 +103,16 @@ namespace SafariParkApp
         //    Console.WriteLine($"h toString {h}");
         //}
 
-        static void Main(string[] args) 
-        { 
-            Airplane a = new Airplane(200, 100, "JetsRUs") 
-            { NumPassengers = 150 }; 
-            a.Ascend(500); 
-            Console.WriteLine(a.Move(3)); 
-            Console.WriteLine(a); a.Descend(200); 
-            Console.WriteLine(a.Move()); 
-            a.Move(); 
-            Console.WriteLine(a); 
-        }
+        //static void Main(string[] args) 
+        //{ 
+        //    Airplane a = new Airplane(200, 100, "JetsRUs") 
+        //    { NumPassengers = 150 }; 
+        //    a.Ascend(500); 
+        //    Console.WriteLine(a.Move(3)); 
+        //    Console.WriteLine(a); a.Descend(200); 
+        //    Console.WriteLine(a.Move()); 
+        //    a.Move(); 
+        //    Console.WriteLine(a); 
+        //}
     }
 }
