@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System; 
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,11 +20,24 @@ namespace SafariParkApp
         }
         public void Ascend(int distance)
         {
+            
+            if (distance >100000)
+            {
+                throw new ArgumentException("You will be beyond Earth!");
+            }
             Altitude += distance;
         }
         public void Descend(int distance)
         {
-            Altitude -= distance;
+            if (distance < 0)
+            {
+                throw new ArgumentException("Descend distance can't be negative!!");
+            }
+            if (Altitude - distance < 0)
+            {
+                throw new ArgumentException("Altitude is less than zero!");
+            }
+            Altitude -= distance;  
         }
         public override string Move(int times)
         {

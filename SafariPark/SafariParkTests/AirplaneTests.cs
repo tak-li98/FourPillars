@@ -35,5 +35,36 @@ namespace SafariParkTests
             v.Ascend(350);
             Assert.AreEqual(350, v.Altitude);
         }
+        [Test]
+        public void WhenAnAirplaneDescendss150Metres_PositionIs350()
+        {
+            Airplane v = new Airplane(250);
+            v.Ascend(150);
+            Assert.AreEqual(150, v.Altitude);
+        }
+        [Test]
+        public void WhenAnAirplaneDescendsBelowTheGround_ThrowException()
+        {
+            Airplane v = new Airplane(250);
+            Assert.That(() => v.Descend(10), Throws.InstanceOf<ArgumentException>());
+        }
+        [Test]
+        public void WhenAnAirplaneAscendsAboveKarmanLine_ThrowException()
+        {
+            Airplane v = new Airplane(250);
+            Assert.That(() => v.Descend(100100), Throws.InstanceOf<ArgumentException>());
+        }
+        [Test]
+        public void WhenNegativePassengerIsPassedIn_ThrowsException()
+        {
+            Airplane v = new Airplane(250);
+            Assert.That(() => v.NumPassengers = -1, Throws.InstanceOf<ArgumentException>());
+        }
+        [Test]
+        public void WhenPassengerOverCapacityIsPassedIn_ThrowsException()
+        {
+            Airplane v = new Airplane(250);
+            Assert.That(() => v.NumPassengers = 255, Throws.InstanceOf<ArgumentException>());
+        }
     }
 }
