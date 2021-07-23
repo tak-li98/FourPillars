@@ -6,22 +6,149 @@ namespace SafariParkApp
     {
         public static void Main()
         {
-            Lasso lasso = new Lasso("Rope3000");
-            var nish = new Hunter("Nish", "Mandal",lasso);
-
-            List<IShootable> weapons = new List<IShootable>
+            List<int> numList = new List<int> { 5, 4, 3, 9, 0 };
+            numList.Add(8);
+            numList.Sort();
+            numList.RemoveRange(1, 2);
+            numList.Insert(2, 1);
+            numList.Reverse();
+            numList.Remove(9);
+            foreach(int num in numList)
             {
-                lasso,
-                new Tranquilizer("Sleepysleepy"),
-                new Camera("Canon")
+                Console.Write($"{num} ");
+            }
+            Console.WriteLine();
+            //make some people
+            var helen = new Person ("Helen","Troy") {Age = 22 };
+            var will = new Person ("William","Shakeshack"){ Age = 457 };
+            //Queues
+            var myQueue = new Queue<Person>();
+            myQueue.Enqueue(helen);
+            myQueue.Enqueue(will);
+            myQueue.Enqueue(new Person("Cathy"));
+            Console.WriteLine("\n Queue");
+            foreach (var q in myQueue)
+            {
+                Console.WriteLine(q);
+            }
+            var first = myQueue.Peek();
+            var serve = myQueue.Dequeue();
+
+            //Stack
+            int[] original = new int[] { 1, 2, 3, 4, 5 };
+            int[] reversed = new int[original.Length];
+            var stack = new Stack<int>();
+            foreach (var num in original)
+            {
+                stack.Push(num);
+            }
+            reversed = stack.ToArray();
+
+            //HashSet
+            var people = new HashSet<Person>
+            {
+                helen, new Person("Jasmine"), new Person("Chris")
             };
-
-            foreach (IShootable weapon in weapons)
+            Console.WriteLine("\n HashSet");
+            foreach (var person in people)
             {
-                nish.Shooter = weapon;
-                Console.WriteLine(nish.Shoot());
+                Console.WriteLine(person);
+            }
+            var success = people.Add(will);
+            success = people.Add(helen);
+            var morePeople = new HashSet<Person> { will, new Person("Cathy"), new Person("Jasmine") };
+            people.IntersectWith(morePeople);
+            var vehicleSet = new HashSet<Vehicle>()
+            {
+                new Vehicle( 5,  2),
+                new Vehicle(){Speed = 100}
+            };
+            success = vehicleSet.Add(new Vehicle() { Speed = 100 });
+
+            //Dictionary
+            var personDict = new Dictionary<string, Person>
+            {
+                {"helen",helen },
+                {"sherlock", new Person("Sherlock","Holmes",40) }
+            };
+            var p = personDict["sherlock"];
+            personDict.Add("will", will);
+
+            // count the number of occurances of letter in a string
+            string input = "The cat in the hat comes back";
+            input = input.Trim().ToLower();
+            var countDict = new Dictionary<char, int>();
+            foreach (var c in input)
+            {
+                if (countDict.ContainsKey(c))
+                {
+                    countDict[c]++;
+                }
+                else
+                {
+                    countDict.Add(c, 1);
+                }  
+            }
+            Console.WriteLine("\n Dictionary problem");
+            foreach (var entry in countDict)
+            {
+                Console.WriteLine(entry);
+            }
+            foreach (var key in countDict.Keys)
+            {
+                Console.Write(key+" ");
+            }
+            Console.WriteLine();
+            Console.WriteLine(new String('-',2*#countDict.Keys.Count));
+            foreach (var value in countDict.Values)
+            {
+                Console.Write(value + " ");
             }
         }
+
+        //public static void Main()
+        //{
+        //    var bobOne = new Person("Bob", "Builder") { Age = 25 };
+        //    var bobTwo = bobOne;
+        //    var areSame = bobOne.Equals(bobTwo);
+        //    var bobThree = new Person("Bob", "Builder") { Age = 25 };
+        //    Console.WriteLine(bobOne.Equals(bobThree));
+
+        //    List<Person> personList = new List<Person>
+        //    {
+        //        new Person("Cathy","Cookson"),
+        //        new Person("Bob","Builder"){Age = 25 },
+        //        new Person("Dan","Dare"),
+        //        new Person("Bob","Builder"){Age = 20 },
+        //        new Person("Amy","Andrews"){Age=32 }
+
+        //    };
+        //    var hasBob = personList.Contains(bobOne);
+        //    var bobIndex = personList.IndexOf(bobOne);
+        //    var hashCodeOne = bobOne.GetHashCode();
+        //    var hasCodeThree = bobThree.GetHashCode();
+        //    var notEqual = bobOne != bobThree;
+
+        //    personList.Sort();
+        //}
+        //public static void Main()
+        //{
+        //    Lasso lasso = new Lasso("Rope3000");
+        //    var nish = new Hunter("Nish", "Mandal",lasso);
+
+        //    List<IShootable> weapons = new List<IShootable>
+        //    {
+        //        lasso,
+        //        new Tranquilizer("Sleepysleepy"),
+        //        new Camera("Canon")
+        //    };
+
+        //    foreach (IShootable weapon in weapons)
+        //    {
+        //        nish.Shooter = weapon;
+        //        Console.WriteLine(nish.Shoot());
+        //    }
+        //}
         //public struct Point3D
         //{
         //    public int x, y, z;

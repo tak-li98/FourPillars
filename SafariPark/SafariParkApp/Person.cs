@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SafariParkApp
 {
-    public class Person : IMoveable
+    public class Person : IMoveable, IEquatable<Person>, IComparable<Person>
     {
         public string FirstName { get; init; } = "";
         public string LastName { get; init; }
@@ -35,6 +35,10 @@ namespace SafariParkApp
             FirstName = firstName;
             LastName = lastName;
         }
+        public Person(string firstName)
+        {
+            FirstName = firstName;
+        }
         public Person()
         {
 
@@ -56,6 +60,52 @@ namespace SafariParkApp
         public string Move(int times)
         {
             return $"Walking along {times} times";
+        }
+
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as Person);
+        }
+
+        public bool Equals(Person other)
+        {
+            return other != null &&
+                   FirstName == other.FirstName &&
+                   LastName == other.LastName &&
+                   Age == other.Age;
+        
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(FirstName, LastName, Age);
+        }
+
+        public int CompareTo(Person other)
+        {
+            if (other == null) return 1;
+            if (this.LastName != other.LastName)
+            {
+                return this.LastName.CompareTo(other.LastName);
+            }
+            else if (this.FirstName != other.FirstName)
+            {
+                return this.FirstName.CompareTo(other.FirstName);
+            }
+            else 
+            {
+                return this.Age.CompareTo(other.Age);
+            }
+        }
+
+        public static bool operator ==(Person left, Person right)
+        {
+            return EqualityComparer<Person>.Default.Equals(left, right);
+        }
+
+        public static bool operator !=(Person left, Person right) 
+        {
+            return !(left == right);
         }
     }
 }

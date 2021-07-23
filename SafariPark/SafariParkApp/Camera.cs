@@ -13,7 +13,10 @@ namespace SafariParkApp
         {
             _brand = brand;
         }
+        public void Focus()
+        {
 
+        }
         public string Shoot()
         {
             return $" Taking photos with: {_brand}";
