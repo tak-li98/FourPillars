@@ -10,22 +10,22 @@ namespace Collections_Lib
         /* removes and returns the next num entries in the queue, as a comma separated string */
         public static string NextInQueue(int num, Queue<string> queue)
         {
-            string output="";
+            string output = "";
             int count = 0;
             if (num > queue.Count)
             {
                 num = queue.Count;
             }
-            while (count<num)
+            while (count < num)
             {
-                    if (count < num - 1)
-                    {
-                        output += queue.Dequeue() + ", ";
-                    }
-                    else
-                    {
-                        output += queue.Dequeue();
-                    }
+                if (count < num - 1)
+                {
+                    output += queue.Dequeue() + ", ";
+                }
+                else
+                {
+                    output += queue.Dequeue();
+                }
                 count++;
             }
             return output;
@@ -41,13 +41,13 @@ namespace Collections_Lib
             }
             var reverse = stack.ToArray();
             return reverse;
-            
+
         }
         // using a Dictionary, counts and returns (as a string) the occurence of the digits 0-9 in the given string
         public static string CountDigits(string input)
         {
             string output = "";
-            var dict = new Dictionary<char, int>(); 
+            var dict = new Dictionary<char, int>();
             foreach (char num in input)
             {
                 if (dict.ContainsKey(num))
@@ -68,5 +68,6 @@ namespace Collections_Lib
             }
             return output;
         }
+
     }
 }

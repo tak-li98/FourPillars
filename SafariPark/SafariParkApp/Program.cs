@@ -99,7 +99,7 @@ namespace SafariParkApp
                 Console.Write(key+" ");
             }
             Console.WriteLine();
-            Console.WriteLine(new String('-',2*#countDict.Keys.Count));
+            Console.WriteLine(new String('-',2*countDict.Keys.Count));
             foreach (var value in countDict.Values)
             {
                 Console.Write(value + " ");
